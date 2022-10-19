@@ -27,8 +27,18 @@ while True:
             saldo += extrato 
 
     elif opcao == "s":
+        input("qual valor que deseja sacar?")
+        if saldo < 0:
+            print("Saldo insuficiente")
+            break
 
-        print("Sacar")
+        elif saldo > 500:
+            print("Limite total atingido!")
+        
+        else:
+            saldo -= extrato 
+            limite_saques = limite_saques + limite_saques
+        
     elif opcao == "e":
         print("Extrato")
     elif opcao == "q":
