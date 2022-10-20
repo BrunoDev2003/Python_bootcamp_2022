@@ -6,7 +6,8 @@ menu = """
 
 """
 
-
+deposito = 0
+sacar = 0
 saldo = 0
 limite = 200
 extrato = ""
@@ -19,15 +20,16 @@ while True:
 
     if opcao == "d":
 
-        input("qual valor que deseja depositar?")
+        deposito = float(input("qual valor que deseja depositar?"))
         if saldo < 0:
             print("Saldo insuficiente")
             break
         else:
-            saldo += extrato 
+            saldo += deposito
+            extrato += f"Deposito: R$ {deposito:.2f}\n"
 
     elif opcao == "s":
-        input("qual valor que deseja sacar?")
+        sacar = float(input("qual valor que deseja sacar?"))
         if saldo < 0:
             print("Saldo insuficiente")
             break
@@ -37,10 +39,17 @@ while True:
         
         else:
             saldo -= extrato 
+            saldo == sacar
             limite_saques = limite_saques + limite_saques
         
     elif opcao == "e":
         print("Extrato")
+        print("R$" + f"{deposito:.2f}\n" )
+        print("R$" + f"{sacar:.2f}\n" )
+
+
     elif opcao == "q":
-        print("Operação inválida, por favor selecione novamente")
         break
+    
+    else:
+        print("Operação inválida, por favor selecione novamente")
