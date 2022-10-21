@@ -38,9 +38,8 @@ while True:
             print("Limite total atingido!")
         
         else:
-            saldo -= extrato 
             saldo == sacar
-            limite_saques = limite_saques + limite_saques
+            limite_saques = numero_saques + limite_saques
         
     elif opcao == "e":
         print("Extrato")
