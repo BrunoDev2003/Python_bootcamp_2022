@@ -38,3 +38,10 @@ calculation_function = operations[operations_symbols]
 answer = calculation_function(num1,num2)
 
 print(f"{num1} {operations_symbols} {num2} = {answer}")
+
+operation_symbol = input("Pick another operation: ")
+num3 = int(input("what's the next number?: "))
+calculation_function = operations[operation_symbol] 
+second_answer = calculation_function(answer, num3)
+
+print(f"{answer} {operation_symbol} {num3} = {second_answer}")
