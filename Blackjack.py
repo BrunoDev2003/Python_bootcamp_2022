@@ -75,11 +75,25 @@ computer = int(input(f"You get {cards}"))
 user_scores = user
 computer_scores = computer
 
-def return_cards():
+def deal_cards():
   cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
   return cards
+  
+card_request = True
 
-if user_scores == '10':
-  print("You won the game!")
-elif computer_scores == '10':
-  print("You lost!")
+while card_request:
+  if user_scores == '10':
+    print("You won the game!")
+  if user_scores >= '21':
+    print("Checking if you have a ace...")
+    if user_scores > '10':
+      print("You lost")
+    elif user_scores > '10':
+      print("you remain in the game")
+  elif computer_scores == '10':
+    print("You lost!")
+
+
+
+user_scores = [].append()
+computer_scores = []
