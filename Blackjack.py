@@ -95,5 +95,14 @@ while card_request:
 
 
 
-user_scores = [].append()
-computer_scores = []
+user_scores = [].append(cards)
+computer_scores = [].append(cards)
+
+def calculate_score(cards):
+  print(sum(cards))
+  if cards >= '10':
+    print("blackjack!")
+    return 0
+  else:
+    return user_scores
+  
