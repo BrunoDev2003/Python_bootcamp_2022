@@ -61,6 +61,7 @@
 
 
 from art import logo
+import random
 
 print(logo)
 
@@ -75,10 +76,15 @@ computer = int(input(f"You get {cards}"))
 user_scores = user
 computer_scores = computer
 
+user_cards = []
+computer_cards = []
+
 def deal_cards():
   cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-  return cards
-  
+  card = random.choice(cards)
+  return card
+
+
 card_request = True
 
 while card_request:
@@ -99,10 +105,12 @@ user_scores = [].append(cards)
 computer_scores = [].append(cards)
 
 def calculate_score(cards):
-  print(sum(cards))
-  if cards >= '10':
-    print("blackjack!")
+  return sum(cards)
+  if sum(cards) == 21 and len(cards) == 2:
     return 0
+
+  if 11 in cards and sum(cards) > 21:
+    cards.remove(11)
+    cards.append(1)
   else:
     return user_scores
-  
