@@ -116,6 +116,19 @@ while card_request:
 
 if user_scores == 0 or computer_scores == 0 or user_scores > 21:
   is_game_over = True
+else:
+  user_choice = input("type 'y' to get another card, type 'n' to pass: ")
+  if user_choice == 'y':
+    user_cards.append(deal_cards())
+  else:
+    is_game_over = True
 
+
+
+
+while computer_score != 0 and computer_score < 17:
+  computer_cards.append(deal_card())
+  comptuer_score =calculate_score(computer_cards)
+  
 user_scores = [].append(cards)
 computer_scores = [].append(cards)
