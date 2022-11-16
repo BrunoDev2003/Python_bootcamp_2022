@@ -62,73 +62,104 @@
 
 from art import logo
 import random
-
-print(logo)
-
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-print("Welcome to the Blackjack game made by BrunoDev2003! Please enjoy the game!\n")
-
-def calculate_score(cards):
-  return sum(cards)
-  if sum(cards) == 21 and len(cards) == 2:
-    return 0
-
-  if 11 in cards and sum(cards) > 21:
-    cards.remove(11)
-    cards.append(1)
-  else:
-    return user_scores
+from replit import clear
 
 
 
-user = int(input(f"You get {cards}"))
-computer = int(input(f"You get {cards}"))
+def play_game():
 
-
-
-user_cards = []
-computer_cards = []
-is_game_over = False
-
-user_scores = calculate_score(user_cards)
-computer_scores = calculate_score(computer_cards)
-
-def deal_cards():
+  print(logo)
+  
   cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-  card = random.choice(cards)
-  return card
+  print("Welcome to the Blackjack game made by BrunoDev2003! Please enjoy the game!\n")
   
-calculate_score(user_cards)
-
-card_request = True
-
-while card_request:
-  if user_scores == '10':
-    print("You won the game!")
-  if user_scores >= '21':
-    print("Checking if you have a ace...")
-    if user_scores > '10':
-      print("You lost")
-    elif user_scores > '10':
-      print("you remain in the game")
-  elif computer_scores == '10':
-    print("You lost!")
-
-if user_scores == 0 or computer_scores == 0 or user_scores > 21:
-  is_game_over = True
-else:
-  user_choice = input("type 'y' to get another card, type 'n' to pass: ")
-  if user_choice == 'y':
-    user_cards.append(deal_cards())
-  else:
+  def calculate_score(cards):
+    return sum(cards)
+    if sum(cards) == 21 and len(cards) == 2:
+      return 0
+  
+    if 11 in cards and sum(cards) > 21:
+      cards.remove(11)
+      cards.append(1)
+    else:
+      return user_scores
+  
+  
+  
+  user = int(input(f"You get {cards}"))
+  computer = int(input(f"You get {cards}"))
+  
+  
+  
+  user_cards = []
+  computer_cards = []
+  is_game_over = False
+  
+  user_scores = calculate_score(user_cards)
+  computer_scores = calculate_score(computer_cards)
+  
+  def compare(user_scores, computer_scores):
+    if user_scores == computer_scores:
+      return "oops! draw! "
+    elif computer_scores == 0:
+      return "You Lost for a Blackjack! "
+    elif user_scores == 0:
+      return "You have a Blackjack! You win!"
+    elif user_scores > 21:
+      return "Game Over"
+    elif computer_scores > 21:
+      return "Computer Lost! You Win!"
+    elif user_scores > computer_scores:
+      return "you won!"
+    else:
+      return "you lose!"
+  
+  def deal_cards():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
+    return card
+    
+  calculate_score(user_cards)
+  
+  card_request = True
+  
+  while card_request:
+    if user_scores == '10':
+      print("You won the game!")
+    if user_scores >= '21':
+      print("Checking if you have a ace...")
+      if user_scores > '10':
+        print("You lost")
+      elif user_scores > '10':
+        print("you remain in the game")
+    elif computer_scores == '10':
+      print("You lost!")
+  
+  if user_scores == 0 or computer_scores == 0 or user_scores > 21:
     is_game_over = True
-
-
-
-
-while computer_score != 0 and computer_score < 17:
-  computer_cards.append(deal_card())
-  comptuer_score =calculate_score(computer_cards)
+  else:
+    user_choice = input("type 'y' to get another card, type 'n' to pass: ")
+    if user_choice == 'y':
+      user_cards.append(deal_cards())
+    else:
+      is_game_over = True
   
-user_scores = [].append(cards)
-computer_scores = [].append(cards)
+  
+  
+  
+  while computer_scores != 0 and computer_scores < 17:
+    computer_cards.append(deal_cards())
+    comptuer_score =calculate_score(computer_cards)
+    
+  user_scores = [].append(cards)
+  computer_scores = [].append(cards)
+  
+  
+  print(f" Your final hand: {user_cards}, final score: {user_scores}")
+  print(f" Computer's final hand: {computer_cards}, final score: {computer_scores}")
+  compare(user_scores, computer_scores)
+  
+  
+while input("do you want to play another game of blackjack? type 'y' or 'n': ") == "y":
+  clear()
+  play_game()
