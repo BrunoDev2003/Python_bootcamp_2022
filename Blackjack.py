@@ -149,7 +149,7 @@ def play_game():
   
   while computer_scores != 0 and computer_scores < 17:
     computer_cards.append(deal_cards())
-    comptuer_score =calculate_score(computer_cards)
+    computer_scores =calculate_score(computer_cards)
     
   user_scores = [].append(cards)
   computer_scores = [].append(cards)
