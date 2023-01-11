@@ -32,9 +32,19 @@ resources = {
 
 # TODO: 1.Print report of coffe machine recoursces
 
-
-user_choice = input("What would you like? (espresso/latte/capuccino): " + user_choice)
+is_on = True
 coins_inserted = 0
+
+while is_on:
+
+    user_choice = input("What would you like? (espresso/latte/capuccino): " + user_choice)
+    if user_choice == "off":
+        is_on = False
+    elif user_choice == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffe: {resources['coffee']}g")
+        print(f"Money: {coins_inserted}")
     
     
 def report():
@@ -76,4 +86,4 @@ def coffee_machine(argument):
         case default:
             exit()
 
-
+#9:25
