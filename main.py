@@ -35,24 +35,7 @@ resources = {
 is_on = True
 coins_inserted = 0
 
-while is_on:
-
-    user_choice = input("What would you like? (espresso/latte/capuccino): " + user_choice)
-    if user_choice == "off":
-        is_on = False
-    elif user_choice == "report":
-        print(f"Water: {resources['water']}ml")
-        print(f"Milk: {resources['milk']}ml")
-        print(f"Coffe: {resources['coffee']}g")
-        print(f"Money: {coins_inserted}")
-    
-    
-def report():
-    print(MENU.espresso)
-    print(MENU.latte)
-    print(MENU.capuccino)
-
-def sufficient_resources():
+def sufficient_resources(order_ingredient):
     if user_choice == "espresso":
         if "water" <= 0:
             print("Sorry there is not enough water.")
@@ -73,6 +56,28 @@ def sufficient_resources():
         elif "coffe" <= 0:
             print("Sorry there is not enough coffee.")
 
+while is_on:
+
+    user_choice = input("What would you like? (espresso/latte/capuccino): " + user_choice)
+    if user_choice == "off":
+        is_on = False
+    elif user_choice == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffe: {resources['coffee']}g")
+        print(f"Money: {coins_inserted}")
+    else:
+        drink = MENU[user_choice]
+        sufficient_resources(drink["ingredients"])
+    
+    
+def report():
+    print(MENU.espresso)
+    print(MENU.latte)
+    print(MENU.capuccino)
+
+
+
 
 def process_coins():
 
@@ -86,4 +91,4 @@ def coffee_machine(argument):
         case default:
             exit()
 
-#9:25
+#11:30
