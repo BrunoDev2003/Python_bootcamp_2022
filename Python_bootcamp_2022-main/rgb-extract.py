@@ -10,3 +10,4 @@ for color in colors:
     new_color = (r,g,b)
     rgb_colors.append(new_color)
 
+color_list = [(200,180,109), (230,240,150)]
