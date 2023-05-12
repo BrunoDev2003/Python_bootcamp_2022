@@ -1,5 +1,6 @@
 import colorgram 
 
+
 rgb_colors = []
 colors = colorgram.extract('image.jpg', 30)
 
