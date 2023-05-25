@@ -6,9 +6,9 @@ screen.setup(width=800, height=800)
 screen.bgcolor("green")
 screen.title("SNAAAAAKEEEEE")
 
-t1 = Turtle()
-t2 = Turtle()
-t3 = Turtle()
+t1 = Turtle("Square")
+t2 = Turtle("Square")
+t3 = Turtle("Square")
 
 t1.color("white")
 t2.color("white")
