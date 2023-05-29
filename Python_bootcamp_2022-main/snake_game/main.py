@@ -6,22 +6,24 @@ screen.setup(width=800, height=800)
 screen.bgcolor("green")
 screen.title("SNAAAAAKEEEEE")
 
-t1 = Turtle("Square")
-t2 = Turtle("Square")
-t3 = Turtle("Square")
 
-t1.color("white")
-t2.color("white")
-t3.color("white")
+segments = []
 
-t1.goto(-20, 0)
-t2.goto(-40,0)
-t3.goto(-60,0)
 
-t1.pensize(20)
-t2.pensize(20)
-t3.pensize(20)
+starting_positions = [(0,0),(-20,0),(-40,0)]
 
+
+for position in starting_positions:
+    new_segment = Turtle("square")
+    new_segment.color("white")
+    new_segment.color("white")
+    new_segment.goto(position)
+    segments.append(new_segment)
+
+game_on = True
+while game_on:
+    for seg in segments:
+        seg.foward(20)
 
 
 screen.exitonclick()
