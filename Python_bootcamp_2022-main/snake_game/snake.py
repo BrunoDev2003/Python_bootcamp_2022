@@ -1,4 +1,9 @@
 
+from turtle import _Screen, Turtle
+from snake import Snake
+import time
+
+
 starting_positions = [(0,0), (-20, 0), (-40,0)]
 MOVE_DISTANCE = 20
 class Snake:
@@ -20,10 +25,10 @@ def move(self):
 
     while game_on:
         for self.seg in self.segments:
-            screen.update()
+            _Screen.update()
             time.sleep(1)
 
-            for seg_num in range(len(segments) - 1,0,-1):
+            for seg_num in range(len(self.segments) - 1,0,-1):
                 new_x = self.segments[seg_num - 1].xcor()
                 new_y = self.segments[seg_num - 1].ycor()
                 self.segments[seg_num].goto(new_x, new_y)
